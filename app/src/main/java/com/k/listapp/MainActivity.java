@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.list_app);
 
+
         appInfos = appInfoManage.getAppInfos(getApplicationContext()); //get all applications
         //appInfos = appInfoManage.getRunningApp(getApplicationContext());  //get task
         //appInfos = appInfoManage.getRunningTask(getApplicationContext());

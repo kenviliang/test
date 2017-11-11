@@ -7,7 +7,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
 
 import com.jaredrummler.android.processes.AndroidProcesses;
 import com.jaredrummler.android.processes.models.AndroidAppProcess;
@@ -36,27 +35,28 @@ public class AppInfoManage {
         for (ApplicationInfo info: applicationInfos){
             AppInfo appInfo = new AppInfo();
 
-            Drawable icon = info.loadIcon(pm);
-            appInfo.setApp_icon(icon);
-
-            String app_name = info.loadLabel(pm).toString();
-            appInfo.setApp_name(app_name);
-
             String packname = info.packageName;
             appInfo.setPackname(packname);
             try {
-                PackageInfo packageInfo = pm.getPackageInfo(packname,0);
-            } catch (PackageManager.NameNotFoundException e){
+                PackageInfo packageInfo = pm.getPackageInfo(packname, 0);  //get package info
+
+                Drawable icon = info.loadIcon(pm);
+                appInfo.setApp_icon(icon);
+
+                String app_name = info.loadLabel(pm).toString();
+                appInfo.setApp_name(app_name);
+
+                listApp.add(appInfo);
+            } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
 
-            //显示用户数据
             /*
+            //显示用户数据
             boolean isUserApp = filterApp(info);
             appInfo.setUserApp(isUserApp);
             */
 
-            listApp.add(appInfo);
         }
 
         return  listApp;
@@ -106,7 +106,11 @@ public class AppInfoManage {
                 runningApp.setApp_icon(app_icon);
             }
 
+            //if (runningApp != null) {
             listApp.add(runningApp);
+            //}
+
+
         }
 
         return listApp;

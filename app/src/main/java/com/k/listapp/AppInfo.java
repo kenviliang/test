@@ -15,16 +15,19 @@ public class AppInfo {
     private String app_name;
     private String packname;
     private boolean isUserApp;
+    private boolean isSelected;
 
     public AppInfo(){
         super();
     }
 
-    public AppInfo(Drawable app_icon, String app_name, String packname, boolean isUserApp){
+    public AppInfo(Drawable app_icon, String app_name, String packname,
+                   boolean isUserApp, boolean isSelected){
         this.app_icon = app_icon;
         this.app_name = app_name;
         this.packname = packname;
         this.isUserApp = isUserApp;
+        this.isSelected = isSelected;
     }
 
     public Drawable getApp_icon(){
@@ -56,8 +59,16 @@ public class AppInfo {
         return isUserApp;
     }
 
-    public void setUserApp(boolean isUserApp){
+    public void setUserApp(boolean isUserApp) {
         this.isUserApp = isUserApp;
+    }
+
+    public boolean isSelected(){
+        return isSelected;
+    }
+
+    public void setSelected(boolean isSelected){
+        this.isSelected = isSelected;
     }
 
     @Override
@@ -66,6 +77,7 @@ public class AppInfo {
                 ", app_name=" + app_name +
                 ", packname=" +packname +
                 ", isUserApp=" + isUserApp +
+                ", isSelected=" + isSelected +
                 "]";
     }
 }

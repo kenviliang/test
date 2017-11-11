@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,7 +14,8 @@
             android:id="@+id/app_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
+            android:adjustViewBounds="false"
+            android:cropToPadding="true"
             android:maxHeight="@android:dimen/app_icon_size"
             android:maxWidth="@android:dimen/app_icon_size"
             android:minHeight="@android:dimen/app_icon_size"
@@ -22,9 +24,19 @@
 
         <TextView
             android:id="@+id/app_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/checkBox"
             android:layout_toRightOf="@id/app_icon"
             android:text="TextView" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="false"
+            android:clickable="true"
+            android:focusable="false" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
